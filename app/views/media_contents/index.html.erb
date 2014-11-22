@@ -7,30 +7,46 @@
 <div class="container">
   <div class="row" style="margin-top: 50px;">
     <div class="col-lg-4 col-lg-offset-1">
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-      Upload New
-    </button>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Upload New</button>
     </div>
   </div>
   <div class="row" style="margin-top: 25px;">
     <div class="col-lg-10 col-lg-offset-1">
       <div class="well">
         <h4><b>Media</b></h4><hr>
-        <div id="media-contents" class="row">
-          <% @media_contents.each do |media| %>
-            <div class="col-lg-4">
-              <div class="thumbnail">
-                <%= image_tag media.file_name.url %>
-              </div>
+        <%= form_tag '/delete_media', method: :delete do %>
+          <div class="row">
+            <div class="col-lg-6">
+              <%= submit_tag "Delete", id: "delete", class: "btn btn-danger", disabled: @media_contents.empty? %>
             </div>
-          <% end %>
-        </div>
+          </div>
+          <br>
+          <div class="row">
+            <div id="media-contents" class="col-lg-12">
+              <% if @media_contents.empty? %>
+                <h5 id="no-media">No Media Found</h5>
+              <% else %>
+                <% @media_contents.each do |media| %>
+                  <div class="col-lg-4">
+                    <div class="thumbnail">
+                      <%= image_tag media.file_name.url %>
+                      <div class="caption">
+                        <p>
+                          <%= check_box_tag "media_contents[]", media.id %>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>  
 </div>
 
-<!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -47,7 +63,6 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
