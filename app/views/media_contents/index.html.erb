@@ -1,0 +1,14 @@
+<h4>Example using html</h4>
+<form action="/media_contents" id="media-dropzone" class="dropzone" enctype="multipart/form-data">
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+  <div class="fallback">
+    <input name="media" type="file" multiple />
+  </div>
+</form>
+
+<h4>Example using form tag</h4>
+<%= form_tag '/media_contents', method: :post, class: "dropzone form", id: "media-dropzone" do %>
+  <div class="fallback">
+    <%= file_field_tag "media", multiple: true%>
+  </div>
+<% end %>
