@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
+  root 'media_contents#index'
+
+  resources :media_contents, only: [:create]
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
