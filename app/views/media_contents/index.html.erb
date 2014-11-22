@@ -5,19 +5,14 @@
   </div>
 </nav>
 <div class="container">
-  <div class="row" style="margin-top: 65px;">
-    <div class="col-lg-10 col-lg-offset-1">
-      <div class="well">
-        <h4><b>Upload New</b></h4><hr>
-        <%= form_tag '/media_contents', method: :post, class: "dropzone form", id: "media-dropzone" do %>
-          <div class="fallback">
-            <%= file_field_tag "media", multiple: true%>
-          </div>
-        <% end %>
-      </div>
+  <div class="row" style="margin-top: 50px;">
+    <div class="col-lg-4 col-lg-offset-1">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+      Upload New
+    </button>
     </div>
   </div>
-  <div class="row">
+  <div class="row" style="margin-top: 25px;">
     <div class="col-lg-10 col-lg-offset-1">
       <div class="well">
         <h4><b>Media</b></h4><hr>
@@ -33,4 +28,27 @@
       </div>
     </div>
   </div>  
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Upload New</h4>
+      </div>
+      <div class="modal-body">
+        <%= form_tag '/media_contents', method: :post, class: "dropzone form", id: "media-dropzone" do %>
+          <div class="fallback">
+            <%= file_field_tag "media", multiple: true%>
+          </div>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
 </div>
