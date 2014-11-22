@@ -1,14 +1,36 @@
-<h4>Example using html</h4>
-<form action="/media_contents" id="media-dropzone" class="dropzone" enctype="multipart/form-data">
-  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
-  <div class="fallback">
-    <input name="media" type="file" multiple />
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#"><b>Dropzone Sample</b></a>
   </div>
-</form>
-
-<h4>Example using form tag</h4>
-<%= form_tag '/media_contents', method: :post, class: "dropzone form", id: "media-dropzone" do %>
-  <div class="fallback">
-    <%= file_field_tag "media", multiple: true%>
+</nav>
+<div class="container">
+  <div class="row" style="margin-top: 65px;">
+    <div class="col-lg-10 col-lg-offset-1">
+      <div class="well">
+        <h4><b>Upload New</b></h4><hr>
+        <%= form_tag '/media_contents', method: :post, class: "dropzone form", id: "media-dropzone" do %>
+          <div class="fallback">
+            <%= file_field_tag "media", multiple: true%>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
-<% end %>
+  <div class="row">
+    <div class="col-lg-10 col-lg-offset-1">
+      <div class="well">
+        <h4><b>Media</b></h4><hr>
+        <div id="media-contents" class="row">
+          <% @media_contents.each do |media| %>
+            <div class="col-lg-4">
+              <div class="thumbnail">
+                <%= image_tag media.file_name.url %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>  
+</div>
