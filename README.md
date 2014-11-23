@@ -1,5 +1,5 @@
-dropzone-sample
-===============
+Ajax File Upload in Rails using Dropzone + Carrierwave
+======================================================
 
 Dropzone + Rails + Carrierwave Demo. Check out the post http://sudharti.github.io/articles/dropzone-rails/
 
@@ -28,5 +28,5 @@ Start the server using ```rails server```
 
 Visit [localhost:3000](http://localhost:3000) in your browser.
 
-
+![alt tag](https://cloud.githubusercontent.com/assets/1825853/5156162/d1e0a5c2-7273-11e4-8a77-b7f15b05fc0f.png)
 
