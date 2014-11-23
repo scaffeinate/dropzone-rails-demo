@@ -30,3 +30,10 @@ Visit [localhost:3000](http://localhost:3000) in your browser.
 
 ![alt tag](https://cloud.githubusercontent.com/assets/1825853/5156162/d1e0a5c2-7273-11e4-8a77-b7f15b05fc0f.png)
 
+
+**Issues:**
+If you have any issues with the demo raise issues here [https://github.com/Just-hack/dropzone-sample/issues](https://github.com/Just-hack/dropzone-sample/issues)
+
+License:
+--------
+This project is licensed under the terms of [MIT License](https://github.com/Just-hack/dropzone-sample/blob/master/LICENSE)
