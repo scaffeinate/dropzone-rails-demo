@@ -11,12 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141122202757) do
+ActiveRecord::Schema.define(version: 20150420153043) do
+
+  create_table "listings", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "media", force: true do |t|
     t.string   "file_name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "listing_id"
   end
+
+  add_index "media", ["listing_id"], name: "index_media_on_listing_id"
 
 end

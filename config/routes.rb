@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   root 'media_contents#index'
 
   resources :media_contents, only: [:create]
+  resources :listings, only: [:new, :create] do
+    post :media, on: :collection
+  end
 
   delete 'delete_media', to: "media_contents#delete_media"
 

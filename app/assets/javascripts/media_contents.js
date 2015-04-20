@@ -1,4 +1,4 @@
-$(function() {
+/*$(function() {
   var mediaDropzone;
   mediaDropzone = new Dropzone("#media-dropzone");
   return mediaDropzone.on("success", function(file, responseText) {
@@ -20,4 +20,4 @@ var appendContent = function(imageUrl, mediaId) {
     '</div></div>');
   $("#delete").removeAttr('disabled');
   $("#no-media").html("");
-};
+};*/
