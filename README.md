@@ -1,7 +1,7 @@
 Ajax File Upload in Rails using Dropzone + Carrierwave
 ======================================================
 
-Dropzone + Rails + Carrierwave Demo. Check out the post http://sudharti.github.io/articles/dropzone-rails/
+Dropzone + Rails + Carrierwave Demo. Check out the post https://medium.com/rails-ember-beyond/ajax-file-upload-in-rails-using-dropzone-and-carrierwave-6f5436fdfdb0#.rvmq8edgt
 
 Working [demo](https://shrouded-beyond-2562.herokuapp.com/). [ Heroku + Cloudinary ]
 
