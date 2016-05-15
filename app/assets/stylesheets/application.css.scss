@@ -17,3 +17,14 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+body {
+  font-family: 'Lato', sans-serif;
+}
+
+.dropzone {
+  background: #f4f4f4 !important;
+  border: none !important;
+  font-size: 2.5rem;
+  font-weight: 700;
+}

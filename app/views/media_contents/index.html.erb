@@ -17,7 +17,7 @@
         <%= form_tag '/delete_media', method: :delete do %>
           <div class="row">
             <div class="col-lg-6">
-              <%= submit_tag "Delete", id: "delete", class: "btn btn-danger", disabled: @media_contents.empty? %>
+              <%= submit_tag 'Delete', id: 'delete', class: 'btn btn-danger', disabled: @media_contents.empty? %>
             </div>
           </div>
           <br>
@@ -32,7 +32,7 @@
                       <%= image_tag media.file_name.url %>
                       <div class="caption">
                         <p>
-                          <%= check_box_tag "media_contents[]", media.id %>
+                          <%= check_box_tag 'media_contents[]', media.id %>
                         </p>
                       </div>
                     </div>
@@ -44,7 +44,7 @@
         <% end %>
       </div>
     </div>
-  </div>  
+  </div>
 </div>
 
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -55,9 +55,9 @@
         <h4 class="modal-title" id="myModalLabel">Upload New</h4>
       </div>
       <div class="modal-body">
-        <%= form_tag '/media_contents', method: :post, class: "dropzone form", id: "media-dropzone" do %>
+        <%= form_tag '/media_contents', method: :post, class: 'dropzone form', id: 'media-dropzone' do %>
           <div class="fallback">
-            <%= file_field_tag "media", multiple: true%>
+            <%= file_field_tag 'media', multiple: true %>
           </div>
         <% end %>
       </div>

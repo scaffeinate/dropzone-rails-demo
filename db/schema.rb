@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20141122202757) do
 
-  create_table "media", force: true do |t|
+  create_table "media", force: :cascade do |t|
     t.string   "file_name"
     t.datetime "created_at"
     t.datetime "updated_at"

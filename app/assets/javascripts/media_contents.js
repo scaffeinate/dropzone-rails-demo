@@ -1,6 +1,7 @@
 $(function() {
   var mediaDropzone;
   mediaDropzone = new Dropzone("#media-dropzone");
+  Dropzone.options.mediaDropzone = false;
   return mediaDropzone.on("success", function(file, responseText) {
     var _this = this;
     appendContent(responseText.file_name.url, responseText.id);
@@ -12,10 +13,10 @@ $(function() {
 });
 
 var appendContent = function(imageUrl, mediaId) {
-  $("#media-contents").append('<div class="col-lg-4">' + 
+  $("#media-contents").append('<div class="col-lg-4">' +
     '<div class="thumbnail"><img src="' + imageUrl + '"/>' +
     '<div class="caption">' +
-    '<input id="media_contents_" name="media_contents[]" value="' + mediaId +'" type="checkbox">' + 
+    '<input id="media_contents_" name="media_contents[]" value="' + mediaId +'" type="checkbox">' +
     '</div>' +
     '</div></div>');
   $("#delete").removeAttr('disabled');
