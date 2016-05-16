@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :media_contents, only: [:create]
 
   delete 'delete_media', to: "media_contents#delete_media"
-
+  delete 'delete_all', to: 'media_contents#delete_all'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
