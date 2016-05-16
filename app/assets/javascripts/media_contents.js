@@ -1,14 +1,32 @@
 $(function() {
-  var mediaDropzone;
-  mediaDropzone = new Dropzone("#media-dropzone");
+  var mediaDropzone = new Dropzone("#media-dropzone");
   Dropzone.options.mediaDropzone = false;
-  return mediaDropzone.on("success", function(file, responseText) {
+  mediaDropzone.options.acceptedFiles = ".jpeg,.jpg,.png,.gif";
+  mediaDropzone.on("complete", function(files) {
     var _this = this;
-    appendContent(responseText.file_name.url, responseText.id);
-    setTimeout(function(){
-      $('#myModal').modal('hide');
-      _this.removeAllFiles();
-    },1000);
+    if (_this.getUploadingFiles().length === 0 && _this.getQueuedFiles().length === 0) {
+      setTimeout(function(){
+        $('#myModal').modal('hide');
+        var acceptedFiles = _this.getAcceptedFiles();
+        var rejectedFiles = _this.getRejectedFiles();
+
+        for(var index = 0; index < acceptedFiles.length; index++) {
+          var file = acceptedFiles[index];
+          var response = JSON.parse(file.xhr.response);
+          appendContent(response.file_name.url, response.id);
+        }
+
+        if(acceptedFiles.length != 0) {
+          alertify.success('Uploaded ' + acceptedFiles.length + ' files successfully.');
+        }
+        if(rejectedFiles.length != 0) {
+          alertify.error('Error uploading ' + rejectedFiles.length + ' files. Only image files are accepted.');
+        }
+
+        _this.removeAllFiles();
+
+      }, 2000);
+    }
   });
 });
 
@@ -20,5 +38,6 @@ var appendContent = function(imageUrl, mediaId) {
     '</div>' +
     '</div></div>');
   $("#delete").removeAttr('disabled');
+  $("#delete-all").removeAttr('disabled');
   $("#no-media").html("");
 };

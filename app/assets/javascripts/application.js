@@ -12,7 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require dropzone
 //= require bootstrap
+//= require alertify
+//= require_self
 //= require_tree .
+
+$(function(){
+  alertify.parent(document.body);
+});

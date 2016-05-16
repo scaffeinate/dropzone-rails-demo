@@ -14,34 +14,37 @@
     <div class="col-lg-10 col-lg-offset-1">
       <div class="well">
         <h4><b>Media</b></h4><hr>
-        <%= form_tag '/delete_media', method: :delete do %>
-          <div class="row">
-            <div class="col-lg-6">
+        <div class="row">
+          <div class="col-lg-10">
+            <%= form_tag '/delete_media', method: :delete do %>
               <%= submit_tag 'Delete', id: 'delete', class: 'btn btn-danger', disabled: @media_contents.empty? %>
-            </div>
-          </div>
-          <br>
-          <div class="row">
-            <div id="media-contents" class="col-lg-12">
-              <% if @media_contents.empty? %>
-                <h5 id="no-media">No Media Found</h5>
-              <% else %>
-                <% @media_contents.each do |media| %>
-                  <div class="col-lg-4">
-                    <div class="thumbnail">
-                      <%= image_tag media.file_name.url %>
-                      <div class="caption">
-                        <p>
-                          <%= check_box_tag 'media_contents[]', media.id %>
-                        </p>
+              <br><br>
+              <div class="row">
+                <div id="media-contents" class="col-lg-12">
+                  <% if @media_contents.empty? %>
+                    <h5 id="no-media">No Media Found</h5>
+                  <% else %>
+                    <% @media_contents.each do |media| %>
+                      <div class="col-lg-4">
+                        <div class="thumbnail">
+                          <%= image_tag media.file_name.url %>
+                          <div class="caption">
+                            <p>
+                              <%= check_box_tag 'media_contents[]', media.id %>
+                            </p>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-                <% end %>
-              <% end %>
-            </div>
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
           </div>
-        <% end %>
+          <div class="col-lg-1">
+            <%= link_to 'Delete All', delete_all_path, method: :delete, id: 'delete-all', class: 'btn btn-danger', disabled: @media_contents.empty? %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
